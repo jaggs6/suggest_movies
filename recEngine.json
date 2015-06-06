@@ -1,0 +1,17 @@
+[
+   {
+     "name":"Sympathy",
+       "genres": [
+           "drama",
+           "action",
+           "comedy"
+       ]
+   },
+   {
+     "name":"Self-efficacy",
+       "genres":  [
+           "action",
+           "adventure"
+       ]
+   }
+]
