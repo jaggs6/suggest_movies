@@ -1,17 +1,234 @@
 [
-   {
-     "name":"Sympathy",
-       "genres": [
-           "drama",
-           "action",
-           "comedy"
-       ]
-   },
-   {
-     "name":"Self-efficacy",
-       "genres":  [
-           "action",
-           "adventure"
-       ]
-   }
+    {
+        "name": "Sympathy",
+        "genres": [
+            "Drama",
+            "Romance",
+            "Musical",
+            "Art/Antiques"
+        ]
+    },
+    {
+        "name": "Self-efficacy",
+        "genres": [
+            "Documentary",
+            "Adventure",
+            "Special Interest",
+            "Art/Antiques"
+        ]
+    },
+    {
+        "name": "Achievement striving",
+        "genres": [
+            "Adventure",
+            "Horror",
+            "Action"
+        ]
+    },
+    {
+        "name": "Intellect",
+        "genres": [
+            "Documentary"
+        ]
+    },
+    {
+        "name": "Activity level",
+        "genres": [
+            "Adventure",
+            "Suspense",
+            "Action"
+        ]
+    },
+    {
+        "name": "Cooperation",
+        "genres": [
+            "Foreign",
+            "Drama"
+        ]
+    },
+    {
+        "name": "Adventurousness",
+        "genres": [
+            "Adventure",
+            "Suspense",
+            "Action",
+            "War"
+        ]
+    },
+    {
+        "name": "Cautiousness",
+        "genres": [
+            "Bollywood",
+            "Romance",
+            "Television",
+            "Classic",
+            "Documentary"
+        ]
+    },
+    {
+        "name": "Altruism",
+        "genres": [
+            "Horror",
+            "Crime",
+            "Thriller"
+        ]
+    },
+    {
+        "name": "Self-discipline",
+        "genres": [
+            "Documentary",
+            "Romance",
+            "Classic"
+        ]
+    },
+    {
+        "name": "Authority-challenging",
+        "genres": [
+            "Crime",
+            "Horror",
+            "War",
+            "Suspense",
+            "Thriller"
+        ]
+    },
+    {
+        "name": "Trust",
+        "genres": [
+            "Romance",
+            "Bollywood",
+            "War",
+            "Musical",
+            "Classic"
+        ]
+    },
+    {
+        "name": "Dutifulness",
+        "genres": [
+            "Documentary",
+            "Art/Antiques"
+        ]
+    },
+    {
+        "name": "Artistic interests",
+        "genres": [
+            "Art/Antiques",
+            "Special Interest",
+            "Classic"
+        ]
+    },
+    {
+        "name": "Imagination",
+        "genres": [
+            "Adventure",
+            "Action",
+            "Classic"
+        ]
+    },
+    {
+        "name": "Outgoing",
+        "genres": [
+            "Adventure",
+            "Action",
+            "Thriller"
+        ]
+    },
+    {
+        "name": "Outgoing",
+        "genres": [
+            "Adventure",
+            "Action",
+            "Thriller"
+        ]
+    },
+    {
+        "name": "Uncompromising",
+        "genres": [
+            "Musical",
+            "Classic",
+            "Television"
+        ]
+    },
+    {
+        "name": "Assertiveness",
+        "genres": [
+            "Suspense",
+            "Art/Antiques"
+        ]
+    },
+    {
+        "name": "Gregariousness",
+        "genres": [
+            "Drama",
+            "Romance",
+            "Comedy",
+            "Television"
+        ]
+    },
+    {
+        "name": "Modesty",
+        "genres": [
+            "Musical",
+            "Special Interest",
+            "Art/Antiques",
+            "Television"
+        ]
+    },
+    {
+        "name": "Orderliness",
+        "genres": [
+            "Musical",
+            "Special Interest",
+            "War"
+        ]
+    },
+    {
+        "name": "Susceptible to stress",
+        "genres": [
+            "Horror",
+            "Suspense",
+            "Action"
+        ]
+    },
+    {
+        "name": "Emotionality",
+        "genres": [
+            "Horror",
+            "Suspense",
+            "Action"
+        ]
+    },
+    {
+        "name": "Cheerfulness",
+        "genres": [
+            "Romance",
+            "Comedy",
+            "Bollywood"
+        ]
+    },
+    {
+        "name": "Prone to worry",
+        "genres": [
+            "Television"
+        ]
+    },
+    {
+        "name": "Excitement-seeking",
+        "genres": [
+            "Adventure",
+            "Suspense",
+            "Thriller"
+        ]
+    },
+    {
+        "name": "Self-consciousness",
+        "genres": [
+            "Classic"
+        ]
+    },
+    {
+        "name": "Melancholy",
+        "genres": [
+            "War"
+        ]
+    }
 ]

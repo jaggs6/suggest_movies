@@ -207,20 +207,32 @@ router.get('/like/@:username', function (req, res) {
       for(var innnerLoop=0;innnerLoop<5;innnerLoop++){
         newOutput.push(output[innnerLoop].id);
       }
-
+      // res.send(JSON.stringify(output));
       var genreOutput = {};
 
       for(var someLoop=0;someLoop<newOutput.length;someLoop++){
         for (var someInnerLoop = 0; someInnerLoop < recEngine.length; someInnerLoop++) {
           if(newOutput[someLoop]===recEngine[someInnerLoop].name){
             for (var someInnerInnerLoop = 0; someInnerInnerLoop < recEngine[someInnerLoop].genres.length; someInnerInnerLoop++) {
-              genreOutput[recEngine[someInnerLoop].genres[someInnerInnerLoop]] = true;
+              if(genreOutput[recEngine[someInnerLoop].genres[someInnerInnerLoop]]){
+                genreOutput[recEngine[someInnerLoop].genres[someInnerInnerLoop]]++;
+              }
+              else {
+                genreOutput[recEngine[someInnerLoop].genres[someInnerInnerLoop]] = 1;
+              }
             }
           }
         }
       }
+      var genreList = setToList(genreOutput);
+      genreList.sort(function (a, b) {return b.count - a.count});
 
-      res.send(JSON.stringify(setToList(genreOutput)));
+      var finalOutput = [];
+      for(var innnnerLoop=0;innnnerLoop<genreList.length;innnnerLoop++){
+        finalOutput.push(genreList[innnnerLoop].genre);
+      }
+      logger.info(genreList);
+      res.send(JSON.stringify(finalOutput));
   });
 });
 
@@ -234,7 +246,10 @@ function setToList(sett){
             // protect from inherited properties such as
             //  Object.prototype.test = 'inherited property';
             if (sett.hasOwnProperty(o))
-                arr.push(o);
+                var obj = {};
+                obj.genre = o;
+                obj.count = sett[o];
+                arr.push(obj);
         }
         return arr;
 }
