@@ -117,7 +117,7 @@ router.get('/like/@:username', function (req, res) {
     return getCelebrityFromDB({id:user.id})
     .then(function(celebrity){
       if (celebrity && celebrity.length === 0) {
-        logger.info(user.username,'is not a celebrity, lets see if is in the DB');
+        // logger.info(user.username,'is not a celebrity, lets see if is in the DB');
         return getUserFromDB({id:user.id})
         .then(function(dbUser) {
           if (dbUser) {
@@ -151,7 +151,7 @@ router.get('/like/@:username', function (req, res) {
     })
     .then(function(dbUser) {
       if (!dbUser) return;
-      logger.info(dbUser.username,'to be comparted to:',celebs.length,'celebrities');
+      // logger.info(dbUser.username,'to be comparted to:',celebs.length,'celebrities');
       var distances = util.calculateDistances(dbUser, celebs);
       // Remove celebrities to match to themselves
       if (distances[0].distance === 1.00)
@@ -185,8 +185,29 @@ router.get('/like/@:username', function (req, res) {
       ret.error = 'Sorry, there was an error. Please try again later.';
     }
 
-    res.status(status);
-    res.render('index',ret);
+    // res.send(JSON.stringify(finalOutput));
+
+    // res.status(status);
+    // res.render('index',ret);
+
+    var genreOutput = {};
+    for (var someInnerLoop = 0; someInnerLoop < recEngine.length; someInnerLoop++) {
+        for (var someInnerInnerLoop = 0; someInnerInnerLoop < recEngine[someInnerLoop].genres.length; someInnerInnerLoop++) {
+          if(genreOutput[recEngine[someInnerLoop].genres[someInnerInnerLoop]]){
+            genreOutput[recEngine[someInnerLoop].genres[someInnerInnerLoop]]++;
+          }
+          else {
+            genreOutput[recEngine[someInnerLoop].genres[someInnerInnerLoop]] = 1;
+          }
+        }
+    }
+    var genreList = setToList(genreOutput);
+    shuffle(genreList);
+    var finalOutput = [];
+    for(var innnnerLoop=0;innnnerLoop<genreList.length;innnnerLoop++){
+      finalOutput.push(genreList[innnnerLoop].genre);
+    }
+    res.send(JSON.stringify(finalOutput));
 
     // return null because we already fulfill the response
     return null;
@@ -196,6 +217,10 @@ router.get('/like/@:username', function (req, res) {
     if (result)
       // res.render('match',result);
       var output = [];
+      if(result===null)
+      {
+        return null;
+      }
       var input = JSON.parse(result.user.profile).tree.children[0].children[0];
       for(var loop=0;loop<input.children.length;loop++){
         for(var innerLoop=0;innerLoop<input.children[loop].children.length;innerLoop++){
@@ -235,6 +260,16 @@ router.get('/like/@:username', function (req, res) {
       res.send(JSON.stringify(finalOutput));
   });
 });
+
+function shuffle(sourceArray) {
+    for (var n = 0; n < sourceArray.length - 1; n++) {
+        var k = n + Math.floor(Math.random() * (sourceArray.length - n));
+
+        var temp = sourceArray[k];
+        sourceArray[k] = sourceArray[n];
+        sourceArray[n] = temp;
+    }
+}
 
 function setToList(sett){
   var arr = [];
