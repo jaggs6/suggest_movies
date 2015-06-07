@@ -154,8 +154,8 @@ router.get('/like/@:username', function (req, res) {
       // logger.info(dbUser.username,'to be comparted to:',celebs.length,'celebrities');
       var distances = util.calculateDistances(dbUser, celebs);
       // Remove celebrities to match to themselves
-      if (distances[0].distance === 1.00)
-        distances = distances.slice(1);
+      // if (distances[0].distance === 1.00)
+        // distances = distances.slice(1);
 
       var ret = {
         user: dbUser,
