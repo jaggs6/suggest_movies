@@ -111,8 +111,7 @@ router.get('/like/@:username', function (req, res) {
     if (!user)
       return;
     else if (user.protected)
-      return res.render('index',
-        {info: '@'+username+' is protected, try another one.',pics:pics});
+      throw "protected";
 
     return getCelebrityFromDB({id:user.id})
     .then(function(celebrity){
@@ -230,6 +229,7 @@ router.get('/like/@:username', function (req, res) {
       output.sort(function (a, b) {return b.percentage - a.percentage});
       var newOutput = [];
       for(var innnerLoop=0;innnerLoop<5;innnerLoop++){
+        logger.info(output[innnerLoop].name + ' - ' + output[innnerLoop].percentage);
         newOutput.push(output[innnerLoop].id);
       }
       // res.send(JSON.stringify(output));
